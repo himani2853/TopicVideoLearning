@@ -63,14 +63,22 @@ An online platform to connect learners via video chat to discuss specific topics
 
 ## System Design Architecture
 
-```mermaid
-flowchart LR
-    FE[Frontend\n(React / Next)] <--> BE[Backend\n(Node.js / Express)]
-    BE <--> DB[Database\n(MongoDB / PostgreSQL)]
++-----------------+           +-------------------+           +-----------------+
+|                 |           |                   |           |                 |
+|   Frontend      | <-------> |     Backend       | <-------> |     Database    |
+| (React / Next)  |  REST/WS  | (Node.js/Express) |           | (MongoDB/PostgreSQL) |
+|                 |           |                   |           |                 |
++-----------------+           +-------------------+           +-----------------+
+        |                           |
+        | WebRTC / Video API        |
+        v                           v
++-----------------+           +-------------------+
+|                 |           |                   |
+| Video Service   |           | Authentication    |
+| (Agora/Twilio)  |           | / Session Logic   |
+|                 |           |                   |
++-----------------+           +-------------------+
 
-    FE -->|WebRTC / Video API| VS[Video Service\n(Agora / Twilio)]
-    BE --> AUTH[Authentication\n/ Session Logic]
-```
 
 ### Frontend (React/Next):
 
