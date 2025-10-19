@@ -63,21 +63,14 @@ An online platform to connect learners via video chat to discuss specific topics
 
 ## System Design Architecture
 
-+-----------------+           +-------------------+           +-----------------+
-|                 |           |                   |           |                 |
-|   Frontend      | <-------> |     Backend       | <-------> |     Database    |
-| (React / Next)  |  REST/WS  | (Node.js/Express) |           | (MongoDB/PostgreSQL) |
-|                 |           |                   |           |                 |
-+-----------------+           +-------------------+           +-----------------+
-        |                           |
-        | WebRTC / Video API        |
-        v                           v
-+-----------------+           +-------------------+
-|                 |           |                   |
-| Video Service   |           | Authentication    |
-| (Agora/Twilio)  |           | / Session Logic   |
-|                 |           |                   |
-+-----------------+           +-------------------+
+```mermaid
+flowchart LR
+    FE[Frontend<br/>(React / Next)] <--> BE[Backend<br/>(Node.js / Express)]
+    BE <--> DB[Database<br/>(MongoDB / PostgreSQL)]
+
+    FE -->|WebRTC / Video API| VS[Video Service<br/>(Agora / Twilio)]
+    BE --> AUTH[Authentication / Session Logic]
+
 
 ### Frontend (React/Next):
 
