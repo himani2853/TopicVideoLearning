@@ -65,12 +65,12 @@ An online platform to connect learners via video chat to discuss specific topics
 
 ```mermaid
 flowchart LR
-    FE[Frontend<br/>(React / Next)] <--> BE[Backend<br/>(Node.js / Express)]
-    BE <--> DB[Database<br/>(MongoDB / PostgreSQL)]
+    FE[Frontend\n(React / Next)] <--> BE[Backend\n(Node.js / Express)]
+    BE <--> DB[Database\n(MongoDB / PostgreSQL)]
 
-    FE -->|WebRTC / Video API| VS[Video Service<br/>(Agora / Twilio)]
-    BE --> AUTH[Authentication / Session Logic]
-
+    FE -->|WebRTC / Video API| VS[Video Service\n(Agora / Twilio)]
+    BE --> AUTH[Authentication\n/ Session Logic]
+```
 
 ### Frontend (React/Next):
 
