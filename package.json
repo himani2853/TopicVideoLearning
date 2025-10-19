@@ -1,0 +1,47 @@
+{
+  "name": "topic-video-learning-platform",
+  "version": "1.0.0",
+  "description": "A platform to connect learners via video chat to discuss specific topics",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "npm install && npm run install:backend && npm run install:frontend",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "seed": "cd backend && node scripts/seedDatabase.js",
+    "clean": "rm -rf node_modules frontend/node_modules backend/node_modules frontend/.next backend/dist"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "keywords": [
+    "video",
+    "learning",
+    "education",
+    "chat",
+    "matching",
+    "topics",
+    "collaboration"
+  ],
+  "author": "Topic Video Learning Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/topic-video-learning.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
